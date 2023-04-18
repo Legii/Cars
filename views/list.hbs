@@ -1,0 +1,37 @@
+<script>
+    const delete_confirmation = (id) => {
+        console.log(id)
+       const confirmation = confirm("confirm delete")
+       if(confirmation) {
+            window.location.replace("http://localhost:3000/delete/" + id)
+       }
+    }
+</script>
+
+
+
+<h2>List</h2>
+<div class="container">
+<table class="table">
+<thead class="thead-dark">
+    <tr>
+      <th scope="col">_id</th>
+      <th scope="col">ubezpieczony</th>
+      <th scope="col">benzyna</th>
+      <th scope="col">uszkodzony</th>
+      <th scope="col">napęd 4v4</th>
+        <th></th>
+    </tr>
+  </thead>
+{{#each cars}}
+<tr>
+    <td>{{_id}}</td>
+    <td>{{polisy}}</td>
+    <td>{{gasoline}}</td>
+    <td>{{demaged}}</td>
+    <td>{{drive4x4}}</td>
+    <td><button class="btn btn-danger" onclick="delete_confirmation('{{_id}}')"> DELETE</button></td>
+</tr>
+{{/each}}
+</table>
+</div>

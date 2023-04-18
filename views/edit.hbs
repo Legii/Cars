@@ -1,0 +1,71 @@
+<h2>Edit</h2>
+<div class="container">
+    <form action="/update" method="POST">
+
+<table class="table">
+<thead class="thead-dark">
+    <tr>
+
+      <th scope="col">_id</th>
+      <th scope="col">ubezpieczony</th>
+      <th scope="col">benzyna</th>
+      <th scope="col">uszkodzony</th>
+      <th scope="col">napęd 4v4</th>
+        <th></th>
+  
+    </tr>
+  </thead>
+{{#each cars}}
+<tr>
+      
+    <td>{{_id}}</td>
+    {{#if selected}}
+    <!--<td>{{polisy}}-->
+        <input type="hidden" name="id" value={{_id}}>
+    <td>
+        <select name="polisy">
+            <option value="TAK">TAK</option>
+            <option value="NIE">NIE</option>
+            <option value="BRAK">BRAK DANYCH</option>
+        </select>
+
+    </td>
+    <td>  
+         <select name="gasoline">
+            <option value="TAK">TAK</option>
+            <option value="NIE">NIE</option>
+            <option value="BRAK">BRAK DANYCH</option>
+        </select>
+     </td>
+    <td>   <select name="demaged">
+            <option value="TAK">TAK</option>
+            <option value="NIE">NIE</option>
+            <option value="BRAK">BRAK DANYCH</option>
+        </select>
+</td>
+    <td>
+        <select name="drive4x4">
+            <option value="TAK">TAK</option>
+            <option value="NIE">NIE</option>
+            <option value="BRAK">BRAK DANYCH</option>
+        </select>
+    </td>
+        <td>
+            <button type="submit" class="btn btn-danger">UPDATE</button>
+            <a href="/edit" class="btn btn-dark">CANCEL</a>
+        </td>
+        {{else}}
+     <td>{{polisy}}</td>
+    <td>{{gasoline}}</td>
+    <td>{{demaged}}</td>
+    <td>{{drive4x4}}</td>
+           <td><a href="/edit?id={{_id}}" class="btn btn-dark">EDIT</a></td>  
+      {{/if}}
+
+
+    </td>
+</tr>
+{{/each}}
+</table>
+</form>
+</div>
